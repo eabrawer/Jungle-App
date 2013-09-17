@@ -6,9 +6,20 @@ class ApplicationController < ActionController::Base
 private
 
 	def current_user
-    	@current_user ||= User.find(session[:user_id]) if 	session[:user_id]
-	end
 
-  	helper_method :current_user
+		if !@current_user
+			@current_user = User.find(session[:user_id]) if session[:user_id]	
+		end
+		# says if current user is nill do this else do nothing
+    	# @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    	rescue
+    		@current_user = nil
+    		session[:user_id] = nil
+		end
+
+  		helper_method :current_user
 
 end
+
+# in the show
+# <%= formatted_price @product.price %>

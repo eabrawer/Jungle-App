@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    if @product.update_attributes(params.require(:product).permit(:title, :description, :price))
+    if @product.update_attributes(params.require(:product).permit(:title, :description, :price_in_dollars))
       redirect_to @product
     else 
       render :edit 

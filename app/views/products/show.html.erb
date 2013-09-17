@@ -1,7 +1,7 @@
 <h1><%= @product.title.capitalize %></h1>
 
 	<%= @product.description %><br />
-	<%= @product.price %><br />
+	<%= @product.formatted_price %><br />
 
 <%= link_to "Back to Products", products_url %><br />
 <%= link_to "Edit Product", edit_product_path %><br />
