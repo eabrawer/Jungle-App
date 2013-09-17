@@ -1,0 +1,29 @@
+<h1>User foobar</h1>
+ 
+ <%= form_for @user do |f| %>
+ 	<%= f.label :email %><br>
+ 	<%= f.text_field :email %><br />
+ 	<br />
+ 	<%= f.label :password %><br />
+ 	<%= f.password_field :password %><br />
+ 	<br />
+ 	<%= f.label :password_confirmation %><br />
+ 	<%= f.password_field :password_confirmation%><br />
+ 	<br />
+ 	<%= f.submit "save" %>
+ <% end %>
+
+
+
+
+ <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+		<% @user.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		<% end %>
+      </ul>
+    </div>
+  <% end %>
+
